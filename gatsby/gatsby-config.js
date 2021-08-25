@@ -8,6 +8,7 @@ export default {
     // TODO: change for real URL
     siteUrl: `https://www.rien.com`,
     description: `Repo made to centralize frontend mentor challenges`,
+    image: '/meta_image.png',
   },
   plugins: [
     // {
