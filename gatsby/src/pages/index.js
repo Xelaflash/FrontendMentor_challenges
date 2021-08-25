@@ -2,6 +2,7 @@ import * as React from "react"
 import styled from "styled-components";
 import SEO from '../components/SEO';
 import { Link } from 'gatsby';
+import Layout from "../components/Layout";
 const HomeStyles = styled.div`
   color: white;
   #intro {
@@ -29,7 +30,7 @@ const HomeStyles = styled.div`
 // markup
 const IndexPage = () => {
   return (
-    <>
+    <Layout>
       <SEO/>
       <HomeStyles>
         <h1 className="title underline_svg">Frontend Mentor Challenges</h1>
@@ -38,7 +39,7 @@ const IndexPage = () => {
           <li><Link to="/challenge1">Order Summary</Link></li>
         </ul>
     </HomeStyles>
-    </>
+    </Layout>
   )
 }
 

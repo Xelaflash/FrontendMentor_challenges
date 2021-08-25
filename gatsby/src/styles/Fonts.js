@@ -59,9 +59,18 @@ const Typography = createGlobalStyle`
     color: var(--white);
     text-shadow: 2px 2px var(--darkGrey);
     text-align: center;
-    margin: 60px auto 80px auto;
+    margin: -20px auto 80px auto;
     font-size: 5rem;
     letter-spacing: 2px;
+  }
+  .page-title {
+    color: var(--white);
+    text-shadow: 2px 2px var(--darkGrey);
+    text-align: center;
+    margin: -20px auto 20px auto;
+    font-size: 3rem;
+    letter-spacing: 2px;
+    text-decoration: underline;
   }
   @media (max-width: 812px) {
     .title {
