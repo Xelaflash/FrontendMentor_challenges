@@ -1,7 +1,7 @@
-# Gatsby / Sanity template
+# Frontend Mentor Challenge #1 (Order summary component)
 
-Template made for Gatsby website with Sanity CMS
-(Feb 2021)
+Repo made with  Gatsby/Sanity CMS template
+
 
 ## Stack
 Front-End: Gatsby / Tailwind / Sass
