@@ -4,27 +4,28 @@ dotenv.config({ path: '.env' });
 
 export default {
   siteMetadata: {
-    title: '',
+    title: 'Frontend Mentor challenges',
     // TODO: change for real URL
-    siteUrl: ``,
-    description: ``,
+    siteUrl: `https://www.rien.com`,
+    description: `Repo made to centralize frontend mentor challenges`,
   },
   plugins: [
-    {
-      resolve: 'gatsby-source-sanity',
-      options: {
-        projectId: '',
-        dataset: 'production',
-        watchMode: true,
-        token: process.env.SANITY_TOKEN,
-      },
-    },
+    // {
+    //   resolve: 'gatsby-source-sanity',
+    //   options: {
+    //     projectId: '',
+    //     dataset: 'production',
+    //     watchMode: true,
+    //     token: process.env.SANITY_TOKEN,
+    //   },
+    // },
     'gatsby-plugin-styled-components',
+    `gatsby-plugin-image`,
     'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sitemap',
     'gatsby-plugin-offline',
-    'gatsby-transformer-sharp',
     'gatsby-plugin-sass',
     'gatsby-plugin-postcss',
     {
