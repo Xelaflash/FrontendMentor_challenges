@@ -1,11 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import Layout from '../components/Layout';
 import SEO from '../components/SEO';
-import bg from '../assets/images/pattern-background-desktop.svg';
-import bgMobile from '../assets/images/pattern-background-mobile.svg';
-import iconMusic from '../assets/images/icon-music.svg';
-import illusHero from '../assets/images/illustration-hero.svg';
+import bg from '../assets/images/challenge1/pattern-background-desktop.svg';
+import iconMusic from '../assets/images/challenge1/icon-music.svg';
+import illusHero from '../assets/images/challenge1/illustration-hero.svg';
 
 const Challenge1Styles = styled.div`
   --paleBlue: hsl(225, 100%, 94%);

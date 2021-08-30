@@ -37,6 +37,7 @@ const IndexPage = () => {
         <p id="intro">This website centralize all the frontend mentor challenges</p>
         <ul>
           <li><Link to="/challenge1">Order Summary</Link></li>
+          <li><Link to="/disneyClone">Disney+ Clone (not frontend mentor challenge)</Link></li>
         </ul>
     </HomeStyles>
     </Layout>
