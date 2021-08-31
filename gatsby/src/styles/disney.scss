@@ -178,6 +178,7 @@
 // movies card
 .movies-container {
   margin: 40px auto;
+  position: relative;
 }
 .movies-title {
   color: #fff;
@@ -189,33 +190,16 @@
 }
 
 .movies-list {
-  width: 100%;
+  width: 95%;
   height: 220px;
   position: relative;
-  margin: 10px 0 20px;
-}
-
-.card-container {
-  position: relative;
-  width: 92%;
-  padding-left: 10px;
-  height: 220px;
-  display: flex;
-  margin: 0 auto;
-  align-items: center;
-  overflow-x: auto;
-  overflow-y: visible;
-  scroll-behavior: smooth;
-}
-
-.card-container::-webkit-scrollbar {
-  display: none;
+  margin: 20px auto;
 }
 
 .card {
   position: relative;
-  min-width: 150px;
-  width: 150px;
+  // shame to use !important but needed in order to override slick-carousel stuff
+  width: 150px !important;
   height: 200px;
   border-radius: 5px;
   overflow: hidden;

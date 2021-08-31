@@ -32,6 +32,13 @@ export default function DisneyClone() {
     cssEase: 'linear',
   };
 
+  const cardSettings = {
+    dots: false,
+    infinite: true,
+    slidesToShow: 9,
+    slidesToScroll: 3,
+  };
+
   useEffect(() => {
     // video cards
     const videoCards = [...document.querySelectorAll('.video-card')];
@@ -43,24 +50,6 @@ export default function DisneyClone() {
       item.addEventListener('mouseleave', () => {
         const video = item.children[1];
         video.pause();
-      });
-    });
-
-    // card sliders
-    const cardContainers = [...document.querySelectorAll('.card-container')];
-    const preBtns = [...document.querySelectorAll('.pre-btn')];
-    const nxtBtns = [...document.querySelectorAll('.nxt-btn')];
-
-    cardContainers.forEach((item, i) => {
-      const containerDimensions = item.getBoundingClientRect();
-      const containerWidth = containerDimensions.width;
-
-      nxtBtns[i].addEventListener('click', () => {
-        item.scrollLeft += containerWidth - 200;
-      });
-
-      preBtns[i].addEventListener('click', () => {
-        item.scrollLeft -= containerWidth + 200;
       });
     });
   });
@@ -175,13 +164,14 @@ export default function DisneyClone() {
       <div className="movies-container">
         <h2 className="movies-title">recommended for you</h2>
         <div className="movies-list">
-          <button className="pre-btn" type="button">
+          {/* <button className="pre-btn" type="button">
             <img src="pre.png" alt="prev button icon" />
           </button>
           <button className="nxt-btn" type="button">
             <img src="nxt.png" alt="next button icon" />
-          </button>
-          <div className="card-container">
+          </button> */}
+          {/* <div className="card-container"> */}
+          <Slider {...cardSettings}>
             {moviesCard.map((card) => (
               <div className="card" key={card.name}>
                 <img
@@ -198,7 +188,8 @@ export default function DisneyClone() {
                 </div>
               </div>
             ))}
-          </div>
+          </Slider>
+          {/* </div> */}
         </div>
       </div>
     </div>
