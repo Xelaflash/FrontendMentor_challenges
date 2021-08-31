@@ -173,13 +173,13 @@ export default function DisneyClone() {
           {/* <div className="card-container"> */}
           <Slider {...cardSettings}>
             {moviesCard.map((card) => (
-              <div className="card" key={card.name}>
+              <div className="card-disney" key={card.name}>
                 <img
                   src={`${card.image}`}
-                  className="card-img"
+                  className="card-disney-img"
                   alt={card.name}
                 />
-                <div className="card-body">
+                <div className="card-disney-body">
                   <h2 className="name">{card.name}</h2>
                   <h6 className="des">{card.des}</h6>
                   <button className="watchlist-btn" type="button">

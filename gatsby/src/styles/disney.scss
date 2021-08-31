@@ -196,7 +196,7 @@
   margin: 20px auto;
 }
 
-.card {
+.card-disney {
   position: relative;
   // shame to use !important but needed in order to override slick-carousel stuff
   width: 150px !important;
@@ -208,21 +208,21 @@
   box-shadow: 3px 3px 10px -6px rgb(255 255 255 / 75%);
 }
 
-.card-img {
+.card-disney-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.card:hover {
+.card-disney:hover {
   transform: scale(1.1);
 }
 
-.card:hover .card-body {
+.card-disney:hover .card-disney-body {
   opacity: 1;
 }
 
-.card-body {
+.card-disney-body {
   opacity: 0;
   width: 100%;
   height: 100%;

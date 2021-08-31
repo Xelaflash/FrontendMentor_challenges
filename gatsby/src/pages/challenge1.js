@@ -13,8 +13,8 @@ const Challenge1Styles = styled.div`
   --darkBlue: hsl(223, 47%, 23%);
   font-family: 'Red Hat Display', sans-serif;
   background: url(${bg});
-    background-repeat: no-repeat;
-    background-color: var(--paleBlue);
+  background-repeat: no-repeat;
+  background-color: var(--paleBlue);
   h3 {
     margin: 40px auto 20px auto;
     font-weight: 900;
@@ -31,13 +31,12 @@ const Challenge1Styles = styled.div`
     height: 95vh;
   }
 
-  .card {
+  .card-challenge1 {
     background: white;
     border-radius: 10px;
-    box-shadow:1px 1px 1px white;
+    box-shadow: 1px 1px 1px white;
     width: 360px;
-    box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.15);
-
+    box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.15);
   }
   .hero {
     background: url(${illusHero});
@@ -47,13 +46,13 @@ const Challenge1Styles = styled.div`
     border-radius: 10px 10px 0 0;
   }
 
-  .card-inner {
+  .card-challenge1-inner {
     padding: 0 40px;
   }
   #description-text {
-    font-size:14px;
-    color: #8A8D9F;
-    text-align:center;
+    font-size: 14px;
+    color: #8a8d9f;
+    text-align: center;
     line-height: 1.5;
     width: 90%;
     margin: auto;
@@ -68,21 +67,21 @@ const Challenge1Styles = styled.div`
     justify-content: space-between;
     height: 80px;
     .plan-left {
-      display:flex;
-      align-items:center;
+      display: flex;
+      align-items: center;
       margin-left: 10px;
       img {
         height: 36px;
       }
       font-size: 14px;
-      font-weight:bold;
+      font-weight: bold;
       color: var(--darkBlue);
     }
     .price-plan {
       margin-left: 14px;
     }
     #price {
-      color: #8A8D9F;
+      color: #8a8d9f;
       font-size: 14px;
       font-weight: 500;
       margin-top: 5px;
@@ -93,9 +92,9 @@ const Challenge1Styles = styled.div`
       font-size: 12px;
       font-weight: 700;
       &:hover {
-      opacity:0.8;
-      text-decoration: none;
-    }
+        opacity: 0.8;
+        text-decoration: none;
+      }
     }
   }
   .order {
@@ -103,39 +102,39 @@ const Challenge1Styles = styled.div`
     padding: 12px 24px;
     border-radius: 8px;
     transition: background 0.3s ease;
-    text-align:center;
+    text-align: center;
     cursor: pointer;
     margin: 25px auto 30px auto;
-    box-shadow: 0px 20px 25px -5px rgba(26, 17, 120,0.2),0px 10px 10px -5px rgba(26, 17, 120,0.3);
+    box-shadow: 0px 20px 25px -5px rgba(26, 17, 120, 0.2),
+      0px 10px 10px -5px rgba(26, 17, 120, 0.3);
     button {
       color: white;
       font-weight: bolder;
       font-size: 13px;
-
     }
     &:hover {
-      opacity:0.7;
+      opacity: 0.7;
     }
   }
   .cancel {
-    margin-bottom:40px;
-    text-align:center;
-    color: #8A8D9F;
+    margin-bottom: 40px;
+    text-align: center;
+    color: #8a8d9f;
     button {
       font-weight: bold;
       font-size: 12px;
     }
     &:hover {
-     color: black;
+      color: black;
     }
   }
-    /* mobile layout */
-    @media (min-width: 375px) and (max-width: 812px) {
+  /* mobile layout */
+  @media (min-width: 375px) and (max-width: 812px) {
     background-color: var(--paleBlue);
-    .card {
+    .card-challenge1 {
       width: 340px;
     }
-    .card-inner {
+    .card-challenge1-inner {
       padding: 0 25px;
     }
     .cancel {
@@ -146,13 +145,16 @@ const Challenge1Styles = styled.div`
     }
   }
 
-
-
-
-  .attribution { font-size: 14px; text-align: center; padding-bottom:30px; background-color: var(--PaleBlue);  }
-  .attribution a { color: hsl(228, 45%, 44%); }
+  .attribution {
+    font-size: 14px;
+    text-align: center;
+    padding-bottom: 30px;
+    background-color: var(--PaleBlue);
+  }
+  .attribution a {
+    color: hsl(228, 45%, 44%);
+  }
 `;
-
 
 export default function challenge1() {
   return (
@@ -160,11 +162,14 @@ export default function challenge1() {
       <SEO title="Challenge 1 : Order summary" />
       <Challenge1Styles>
         <section>
-          <div className="card">
-            <div className="hero"></div>
-            <div className="card-inner">
+          <div className="card-challenge1">
+            <div className="hero" />
+            <div className="card-challenge1-inner">
               <h3>Order Summary</h3>
-              <p id="description-text">You can now listen to millions of songs, audiobooks, and podcasts on any device anywhere you like!</p>
+              <p id="description-text">
+                You can now listen to millions of songs, audiobooks, and
+                podcasts on any device anywhere you like!
+              </p>
               <div className="plan">
                 <div className="plan-left">
                   <img src={iconMusic} alt="icon music" />
@@ -179,16 +184,23 @@ export default function challenge1() {
                 <button type="submit">Proceed to Payment</button>
               </div>
               <div className="cancel">
-                <button type="cancel">Cancel Order</button>
+                <button type="button">Cancel Order</button>
               </div>
             </div>
           </div>
         </section>
         <div className="attribution">
-          Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-          Coded by <a href="www.alexgwebdev.com">AlexG WebDev</a>.
+          Challenge by{' '}
+          <a
+            href="https://www.frontendmentor.io?ref=challenge"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Frontend Mentor
+          </a>
+          . Coded by <a href="www.alexgwebdev.com">AlexG WebDev</a>.
         </div>
       </Challenge1Styles>
     </>
-  )
+  );
 }
