@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import "../styles/disney.scss";
 import Img from "gatsby-image";
 import { graphql, useStaticQuery } from "gatsby";
@@ -17,13 +17,6 @@ export default function disneyClone() {
           }
         }
       }
-      # slider1: file(relativePath: { eq: "images/disney/slider1.PNG" }) {
-      #   childImageSharp {
-      #     fluid {
-      #       ...GatsbyImageSharpFluid
-      #     }
-      #   }
-      # }
     }
   `);
 
@@ -33,10 +26,25 @@ export default function disneyClone() {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 8000,
+    autoplaySpeed: 5000,
     speed: 2500,
     cssEase: "linear",
   };
+
+  /// video cards
+  useEffect(() => {
+    const videoCards = [...document.querySelectorAll(".video-card")];
+    videoCards.forEach((item) => {
+      item.addEventListener("mouseover", () => {
+        let video = item.children[1];
+        video.play();
+      });
+      item.addEventListener("mouseleave", () => {
+        let video = item.children[1];
+        video.pause();
+      });
+    });
+  });
 
   return (
     <div className="disney">
@@ -70,17 +78,64 @@ export default function disneyClone() {
       </nav>
       {/* carousel */}
       <div className="carousel-container">
-        <Slider {...settings} >
-        {movies.map((movie) => (
-            <div className="slider">
+        <Slider {...settings}>
+          {movies.map((movie) => (
+            <div className="slider" key={movie.name}>
               <div className="slide-content">
                 <h1 className="movie-title">{movie.name}</h1>
                 <p className="movie-des">{movie.des}</p>
               </div>
               <img src={`${movie.image}`} alt="" className="sliderImg" />
             </div>
-        ))}
+          ))}
         </Slider>
+      </div>
+      <div className="video-card-container">
+        <div className="video-card">
+          <img src="disney.PNG" className="video-card-image" alt="" />
+          <video
+            src="videos/disney/disney.mp4"
+            mute="true"
+            loop
+            className="card-video"
+          ></video>
+        </div>
+        <div className="video-card">
+          <img src="pixar.PNG" className="video-card-image" alt="" />
+          <video
+            src="videos/disney/pixar.mp4"
+            mute="true"
+            loop
+            className="card-video"
+          ></video>
+        </div>
+        <div className="video-card">
+          <img src="marvel.PNG" className="video-card-image" alt="" />
+          <video
+            src="videos/disney/marvel.mp4"
+            mute="true"
+            loop
+            className="card-video"
+          ></video>
+        </div>
+        <div className="video-card">
+          <img src="star-wars.PNG" className="video-card-image" alt="" />
+          <video
+            src="videos/disney/star-war.mp4"
+            mute="true"
+            loop
+            className="card-video"
+          ></video>
+        </div>
+        <div className="video-card">
+          <img src="geographic.PNG" className="video-card-image" alt="" />
+          <video
+            src="videos/disney/geographic.mp4"
+            mute="true"
+            loop
+            className="card-video"
+          ></video>
+        </div>
       </div>
     </div>
   );
