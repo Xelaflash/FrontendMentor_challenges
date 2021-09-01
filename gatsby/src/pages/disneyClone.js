@@ -7,11 +7,11 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { movies, moviesCard } from '../data/disney.js';
-import disney from '../assets/images/disney/videos/disney.mp4';
-import pixar from '../assets/images/disney/videos/pixar.mp4';
-import marvel from '../assets/images/disney/videos/marvel.mp4';
-import starWars from '../assets/images/disney/videos/star-war.mp4';
-import geographic from '../assets/images/disney/videos/geographic.mp4';
+import disney from '../assets/images/disney/disney.mp4';
+import pixar from '../assets/images/disney/pixar.mp4';
+import marvel from '../assets/images/disney/marvel.mp4';
+import starWars from '../assets/images/disney/star-war.mp4';
+import geographic from '../assets/images/disney/geographic.mp4';
 
 export default function DisneyClone() {
   const data = useStaticQuery(graphql`
