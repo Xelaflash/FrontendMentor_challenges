@@ -12,6 +12,11 @@ import pixar from '../assets/images/disney/pixar.mp4';
 import marvel from '../assets/images/disney/marvel.mp4';
 import starWars from '../assets/images/disney/star-war.mp4';
 import geographic from '../assets/images/disney/geographic.mp4';
+import disneyLogo from '../assets/images/disney/disney.png';
+import pixarLogo from '../assets/images/disney/pixar.png';
+import marvelLogo from '../assets/images/disney/marvel.png';
+import starWarsLogo from '../assets/images/disney/star-wars.png';
+import geographicLogo from '../assets/images/disney/geographic.png';
 
 export default function DisneyClone() {
   const data = useStaticQuery(graphql`
@@ -131,7 +136,7 @@ export default function DisneyClone() {
       <div className="video-card-container">
         <div className="video-card">
           <img
-            src="disney.PNG"
+            src={disneyLogo}
             className="video-card-image"
             alt="disney logo"
           />
@@ -145,7 +150,7 @@ export default function DisneyClone() {
           />
         </div>
         <div className="video-card">
-          <img src="pixar.PNG" className="video-card-image" alt="pixar logo" />
+          <img src={pixarLogo} className="video-card-image" alt="pixar logo" />
           <video
             src={pixar}
             autoPlay
@@ -157,7 +162,7 @@ export default function DisneyClone() {
         </div>
         <div className="video-card">
           <img
-            src="marvel.PNG"
+            src={marvelLogo}
             className="video-card-image"
             alt="marvel logo"
           />
@@ -172,7 +177,7 @@ export default function DisneyClone() {
         </div>
         <div className="video-card">
           <img
-            src="star-wars.PNG"
+            src={starWarsLogo}
             className="video-card-image"
             alt="star wars logo"
           />
@@ -187,7 +192,7 @@ export default function DisneyClone() {
         </div>
         <div className="video-card">
           <img
-            src="geographic.PNG"
+            src={geographicLogo}
             className="video-card-image"
             alt="National geographic logo"
           />
