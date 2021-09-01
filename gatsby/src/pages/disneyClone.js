@@ -35,8 +35,31 @@ export default function DisneyClone() {
   const cardSettings = {
     dots: false,
     infinite: true,
-    slidesToShow: 9,
+    slidesToShow: 8,
     slidesToScroll: 3,
+    responsive: [
+      {
+        breakpoint: 1280,
+        settings: {
+          slidesToShow: 6,
+          slidesToScroll: 3,
+        },
+      },
+      {
+        breakpoint: 950,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 2,
+        },
+      },
+      {
+        breakpoint: 650,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   useEffect(() => {
@@ -107,8 +130,8 @@ export default function DisneyClone() {
           />
           <video
             src="videos/disney/disney.mp4"
-            autoPlay="true"
-            muted="true"
+            autoPlay
+            muted
             type="video/mp4"
             loop
             className="card-video"
@@ -118,7 +141,8 @@ export default function DisneyClone() {
           <img src="pixar.PNG" className="video-card-image" alt="pixar logo" />
           <video
             src="videos/disney/pixar.mp4"
-            muted="true"
+            autoPlay
+            muted
             type="video/mp4"
             loop
             className="card-video"
@@ -132,7 +156,8 @@ export default function DisneyClone() {
           />
           <video
             src="videos/disney/marvel.mp4"
-            muted="true"
+            autoPlay
+            muted
             type="video/mp4"
             loop
             className="card-video"
@@ -146,7 +171,8 @@ export default function DisneyClone() {
           />
           <video
             src="videos/disney/star-war.mp4"
-            muted="true"
+            autoPlay
+            muted
             type="video/mp4"
             loop
             className="card-video"
@@ -160,7 +186,8 @@ export default function DisneyClone() {
           />
           <video
             src="videos/disney/geographic.mp4"
-            muted="true"
+            autoPlay
+            muted
             type="video/mp4"
             loop
             className="card-video"

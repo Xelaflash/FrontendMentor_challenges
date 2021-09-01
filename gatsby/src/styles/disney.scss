@@ -18,6 +18,7 @@
   z-index: 9;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   box-shadow: 0px 1px 10px 1px rgb(255 255 255 / 40%);
 }
 
@@ -51,7 +52,7 @@
   outline: none;
   height: 30px;
   color: #fff;
-  width: 250px;
+  width: 150px;
   text-transform: capitalize;
   font-size: 16px;
   font-weight: 500;
@@ -59,7 +60,7 @@
 }
 
 .search-box:focus {
-  width: 400px;
+  width: 200px;
   border-color: #1f80e0;
 }
 
@@ -89,7 +90,6 @@
 // slider
 .carousel-container {
   width: 100%;
-  // height: 500px;
   padding: 20px 0;
   overflow-x: hidden;
   margin-top: 80px;
@@ -143,17 +143,17 @@
   position: relative;
   width: 92%;
   margin: auto;
-  height: 10vw;
+  height: 100%;
   display: flex;
-  margin-bottom: 20px;
   justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
 }
 
 .video-card {
   position: relative;
   min-width: calc(100% / 5 - 10px);
   width: calc(100% / 5 - 10px);
-  height: 100%;
   border-radius: 5px;
   overflow: hidden;
   background: #030b17;
@@ -163,16 +163,27 @@
 .video-card-image,
 .card-video {
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: cover;
 }
 
 .card-video {
   position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: 0.5s ease;
 }
 
 .video-card:hover .video-card-image {
   display: none;
+}
+.video-card:hover .card-video {
+  opacity: 1;
 }
 
 // movies card
@@ -324,4 +335,43 @@
 .pre-btn:hover img,
 .nxt-btn:hover img {
   opacity: 1;
+}
+
+@media (min-width: 568px) and (max-width: 812px) {
+  .right-container {
+    display: none;
+  }
+  .movie-des {
+    font-size: 10px;
+    line-height: 1.4;
+    margin-top: 10px;
+  }
+  .movies-list {
+    width: 90%;
+  }
+}
+@media (min-width: 320px) and (max-width: 567px) {
+  .right-container {
+    display: none;
+  }
+  .nav-items a {
+    font-size: 14px;
+  }
+  .movie-title {
+    margin-top: 40px;
+    font-size: 22px;
+    width: 90%;
+    padding-left: 30px;
+  }
+  .movie-des {
+    display: none;
+  }
+  .movies-list {
+    width: 85%;
+  }
+  .video-card {
+    min-width: calc(100% / 3 - 10px);
+    width: calc(100% / 3 - 10px);
+    margin: 5px auto;
+  }
 }
