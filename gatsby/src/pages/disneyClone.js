@@ -7,6 +7,11 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { movies, moviesCard } from '../assets/data/disney';
+import disney from '../assets/images/disney/videos/disney.mp4';
+import pixar from '../assets/images/disney/videos/pixar.mp4';
+import marvel from '../assets/images/disney/videos/marvel.mp4';
+import starWars from '../assets/images/disney/videos/star-war.mp4';
+import geographic from '../assets/images/disney/videos/geographic.mp4';
 
 export default function DisneyClone() {
   const data = useStaticQuery(graphql`
@@ -131,7 +136,7 @@ export default function DisneyClone() {
             alt="disney logo"
           />
           <video
-            src="videos/disney/disney.mp4"
+            src={disney}
             autoPlay
             muted
             type="video/mp4"
@@ -142,7 +147,7 @@ export default function DisneyClone() {
         <div className="video-card">
           <img src="pixar.PNG" className="video-card-image" alt="pixar logo" />
           <video
-            src="videos/disney/pixar.mp4"
+            src={pixar}
             autoPlay
             muted
             type="video/mp4"
@@ -157,7 +162,7 @@ export default function DisneyClone() {
             alt="marvel logo"
           />
           <video
-            src="videos/disney/marvel.mp4"
+            src={marvel}
             autoPlay
             muted
             type="video/mp4"
@@ -172,7 +177,7 @@ export default function DisneyClone() {
             alt="star wars logo"
           />
           <video
-            src="videos/disney/star-war.mp4"
+            src={starWars}
             autoPlay
             muted
             type="video/mp4"
@@ -187,7 +192,7 @@ export default function DisneyClone() {
             alt="National geographic logo"
           />
           <video
-            src="videos/disney/geographic.mp4"
+            src={geographic}
             autoPlay
             muted
             type="video/mp4"
