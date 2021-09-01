@@ -101,7 +101,9 @@ export default function DisneyClone() {
         </ul>
         <div className="right-container">
           <input type="text" className="search-box" placeholder="search" />
-          <button className="sub-btn">subscribe</button>
+          <button className="sub-btn" type="button">
+            subscribe
+          </button>
           <a href="#" className="login-link">
             login
           </a>
@@ -197,13 +199,6 @@ export default function DisneyClone() {
       <div className="movies-container">
         <h2 className="movies-title">recommended for you</h2>
         <div className="movies-list">
-          {/* <button className="pre-btn" type="button">
-            <img src="pre.png" alt="prev button icon" />
-          </button>
-          <button className="nxt-btn" type="button">
-            <img src="nxt.png" alt="next button icon" />
-          </button> */}
-          {/* <div className="card-container"> */}
           <Slider {...cardSettings}>
             {moviesCard.map((card) => (
               <div className="card-disney" key={card.name}>
@@ -222,7 +217,6 @@ export default function DisneyClone() {
               </div>
             ))}
           </Slider>
-          {/* </div> */}
         </div>
       </div>
     </div>

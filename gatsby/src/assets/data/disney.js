@@ -22,7 +22,7 @@ export const movies = [
   {
     name: 'luca',
     des: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit porro et veniam excepturi, eaque voluptatem impedit nulla laboriosam facilis ut laboriosam libero!',
-    image: '/slider5.PNG',
+    image: 'slider5.PNG',
   },
 ];
 
