@@ -3,7 +3,6 @@ import slider2 from '../images/disney/sliders/slider2.png';
 import slider3 from '../images/disney/sliders/slider3.png';
 import slider4 from '../images/disney/sliders/slider4.png';
 import slider5 from '../images/disney/sliders/slider5.png';
-
 import poster1 from '../images/disney/poster 1.png';
 import poster2 from '../images/disney/poster 2.png';
 import poster3 from '../images/disney/poster 3.png';
