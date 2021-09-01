@@ -107,7 +107,9 @@ export default function DisneyClone() {
           />
           <video
             src="videos/disney/disney.mp4"
-            mute="true"
+            autoPlay="true"
+            muted="true"
+            type="video/mp4"
             loop
             className="card-video"
           />
@@ -116,7 +118,8 @@ export default function DisneyClone() {
           <img src="pixar.PNG" className="video-card-image" alt="pixar logo" />
           <video
             src="videos/disney/pixar.mp4"
-            mute="true"
+            muted="true"
+            type="video/mp4"
             loop
             className="card-video"
           />
@@ -129,7 +132,8 @@ export default function DisneyClone() {
           />
           <video
             src="videos/disney/marvel.mp4"
-            mute="true"
+            muted="true"
+            type="video/mp4"
             loop
             className="card-video"
           />
@@ -142,7 +146,8 @@ export default function DisneyClone() {
           />
           <video
             src="videos/disney/star-war.mp4"
-            mute="true"
+            muted="true"
+            type="video/mp4"
             loop
             className="card-video"
           />
@@ -155,7 +160,8 @@ export default function DisneyClone() {
           />
           <video
             src="videos/disney/geographic.mp4"
-            mute="true"
+            muted="true"
+            type="video/mp4"
             loop
             className="card-video"
           />
