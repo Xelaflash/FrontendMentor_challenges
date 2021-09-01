@@ -1,20 +1,20 @@
-import slider1 from '../images/disney/sliders/slider1.png';
-import slider2 from '../images/disney/sliders/slider2.png';
-import slider3 from '../images/disney/sliders/slider3.png';
-import slider4 from '../images/disney/sliders/slider4.png';
-import slider5 from '../images/disney/sliders/slider5.png';
-import poster1 from '../images/disney/poster 1.png';
-import poster2 from '../images/disney/poster 2.png';
-import poster3 from '../images/disney/poster 3.png';
-import poster4 from '../images/disney/poster 4.png';
-import poster5 from '../images/disney/poster 5.png';
-import poster6 from '../images/disney/poster 6.png';
-import poster7 from '../images/disney/poster 7.png';
-import poster8 from '../images/disney/poster 8.png';
-import poster9 from '../images/disney/poster 9.png';
-import poster10 from '../images/disney/poster 10.png';
-import poster11 from '../images/disney/poster 11.png';
-import poster12 from '../images/disney/poster 12.png';
+import slider1 from '../assets/images/disney/sliders/slider1.png';
+import slider2 from '../assets/images/disney/sliders/slider2.png';
+import slider3 from '../assets/images/disney/sliders/slider3.png';
+import slider4 from '../assets/images/disney/sliders/slider4.png';
+import slider5 from '../assets/images/disney/sliders/slider5.png';
+import poster1 from '../assets/images/disney/poster 1.png';
+import poster2 from '../assets/images/disney/poster 2.png';
+import poster3 from '../assets/images/disney/poster 3.png';
+import poster4 from '../assets/images/disney/poster 4.png';
+import poster5 from '../assets/images/disney/poster 5.png';
+import poster6 from '../assets/images/disney/poster 6.png';
+import poster7 from '../assets/images/disney/poster 7.png';
+import poster8 from '../assets/images/disney/poster 8.png';
+import poster9 from '../assets/images/disney/poster 9.png';
+import poster10 from '../assets/images/disney/poster 10.png';
+import poster11 from '../assets/images/disney/poster 11.png';
+import poster12 from '../assets/images/disney/poster 12.png';
 
 export const movies = [
   {
