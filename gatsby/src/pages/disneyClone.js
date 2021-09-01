@@ -12,11 +12,11 @@ import pixar from '../assets/images/disney/pixar.mp4';
 import marvel from '../assets/images/disney/marvel.mp4';
 import starWars from '../assets/images/disney/star-war.mp4';
 import geographic from '../assets/images/disney/geographic.mp4';
-import disneyLogo from '../assets/images/disney/disney.png';
-import pixarLogo from '../assets/images/disney/pixar.png';
-import marvelLogo from '../assets/images/disney/marvel.png';
-import starWarsLogo from '../assets/images/disney/star-wars.png';
-import geographicLogo from '../assets/images/disney/geographic.png';
+import disneyLogo from '../assets/images/disney/disneyLogo.png';
+import pixarLogo from '../assets/images/disney/pixarLogo.png';
+import marvelLogo from '../assets/images/disney/marvelLogo.png';
+import starWarsLogo from '../assets/images/disney/star-warsLogo.png';
+import geographicLogo from '../assets/images/disney/geographicLogo.png';
 
 export default function DisneyClone() {
   const data = useStaticQuery(graphql`
