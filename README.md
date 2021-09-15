@@ -1,14 +1,20 @@
-# Frontend Mentor Challenges
+<h1 align="center">Welcome to Frontend Challenges & Fun 👋</h1>
+<p>
+</p>
 
-https://stupefied-liskov-7a3b28.netlify.app
+> Repo made for all frontend challenges (frontend mentor, freecodecamp...etc)
 
-Repo made with Gatsby/Sanity CMS template
+### 🏠 [Homepage](https://stupefied-liskov-7a3b28.netlify.app)
 
-## Stack
+## Author
 
-Front-End: Gatsby / Tailwind / Sass
-Back-End: Sanity CMS / GraphQl
+👤 **alexgWebDev**
 
-### Challenge #1
+* Website: https://www.alexgwebdev.com/
 
-Order Summary component
+## Show your support
+
+Give a ⭐️ if this project helped you!
+
+***
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
