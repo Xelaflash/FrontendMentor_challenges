@@ -84,7 +84,12 @@ const Typography = createGlobalStyle`
   }
   @media (max-width: 812px) {
     .title {
-      font-size: 4rem;
+      font-size: 3rem;
+      margin: 40px auto;
+      width: auto;
+    }
+    #intro {
+      font-size:1.5rem;
     }
   }
 `;

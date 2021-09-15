@@ -22,7 +22,7 @@ const HomeStyles = styled.div`
   li {
     list-style: none;
     letter-spacing: 2px;
-    width: max-content;
+    width: 100%;
     background-image: linear-gradient(
       182deg,
       rgb(255, 255, 255) 15%,
@@ -41,7 +41,6 @@ const HomeStyles = styled.div`
     }
     a {
       font-weight: 900;
-      display: flex;
     }
   }
 `;

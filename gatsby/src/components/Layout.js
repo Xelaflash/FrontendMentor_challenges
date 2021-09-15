@@ -7,7 +7,7 @@ const LayoutStyles = styled.div`
   .svg-wrapper {
     transform: skewY(-5deg);
     position: relative;
-    z-index: 2;
+    z-index: -10;
     background: linear-gradient(
       rgba(255, 255, 255, 0.15),
       rgba(255, 255, 255, 0)

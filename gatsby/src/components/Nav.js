@@ -3,14 +3,18 @@ import styled from 'styled-components';
 import Img from 'gatsby-image';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 
-
 const NavStyles = styled.div`
   margin: 10px 20px;
-  padding: 10px;
+  padding: 10px 40px;
 `;
 
 const LogoRoundStyles = styled.div`
-  width: 110px;
+  width: 80px;
+  filter: drop-shadow(3px 3px 13px rgba(255, 255, 255, 0.4));
+  transition: all 0.5s;
+  &:hover {
+    transform: rotate(180deg);
+  }
   @media (max-width: 400px) {
     margin-left: 10px;
   }
@@ -24,7 +28,7 @@ const LogoRound = () => {
     query {
       file(name: { eq: "meta_image" }, extension: { eq: "png" }) {
         childImageSharp {
-          fluid(maxWidth: 110, pngQuality: 100) {
+          fluid(maxWidth: 80, pngQuality: 100) {
             ...GatsbyImageSharpFluid
           }
         }
