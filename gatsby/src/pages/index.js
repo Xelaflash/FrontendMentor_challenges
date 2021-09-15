@@ -11,6 +11,8 @@ const HomeStyles = styled.div`
     align-items: center;
     justify-content: center;
     text-align: center;
+    max-width: 700px;
+    margin: auto;
   }
   ul {
     margin: 50px auto;
@@ -18,12 +20,28 @@ const HomeStyles = styled.div`
     width: fit-content;
   }
   li {
-    list-style: decimal-leading-zero;
-    color: var(--lightGreen);
+    list-style: none;
+    letter-spacing: 2px;
+    width: max-content;
+    background-image: linear-gradient(
+      182deg,
+      rgb(255, 255, 255) 15%,
+      rgb(255, 240, 102),
+      rgb(255, 163, 26)
+    );
+    background-size: 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: rgb(255, 204, 51);
     font-weight: bold;
     padding: 10px;
+    &:hover {
+      opacity: 0.7;
+    }
     a {
-      font-weight: bold;
+      font-weight: 900;
+      display: flex;
     }
   }
 `;
@@ -33,18 +51,21 @@ const IndexPage = () => (
   <Layout>
     <SEO />
     <HomeStyles>
-      <h1 className="title underline_svg">Frontend Mentor Challenges</h1>
+      <h1 className="title underline_svg">Frontend Challenges</h1>
       <p id="intro">
-        This website centralize all the frontend mentor challenges
+        This website centralize all the frontend challenges (frontend mentor,
+        Freecodecamp...) i've done for learning purpose, practicing or just fun
+        🤓
       </p>
       <ul>
         <li>
           <Link to="/challenge1">Order Summary</Link>
         </li>
         <li>
-          <Link to="/disneyClone">
-            Disney+ Clone (not frontend mentor challenge)
-          </Link>
+          <Link to="/disneyClone">Disney+ Clone</Link>
+        </li>
+        <li>
+          <Link to="/fcc_quote_machine">Freecodecamp Random Quote Machine</Link>
         </li>
       </ul>
     </HomeStyles>

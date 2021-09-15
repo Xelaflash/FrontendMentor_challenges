@@ -2,10 +2,10 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
   :root {
-    --black: #2E2E2E;
+    --black: #110D12;
     --white: #fff;
     --grey: #efefef;
-    --darkGrey: #0E0000;
+    --darkGrey: #252327;
     --lightGrey: #F4F4F4;
     --red: #eb624d;
     --darkOrange: #fc7d3a;
@@ -31,9 +31,8 @@ const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    background-color: transparent;
+    background-color: var(--black);
     font-size: 1.8rem;
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
     min-height:100vh;
   }
 
@@ -55,7 +54,7 @@ const GlobalStyles = createGlobalStyle`
     position: relative;
     margin-left: 5px;
     &::after {
-      content: '';
+    content: '';
     position: absolute;
     bottom: -2.5rem;
     left: 26%;

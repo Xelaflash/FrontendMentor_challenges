@@ -56,12 +56,22 @@ const Typography = createGlobalStyle`
   }
 
   .title {
-    color: var(--white);
-    text-shadow: 2px 2px var(--darkGrey);
     text-align: center;
     margin: -20px auto 80px auto;
     font-size: 5rem;
+    font-weight: bold;
     letter-spacing: 2px;
+    background-color: #ffb23e;
+    background-image: linear-gradient(
+      268.67deg,
+      #fff 3.43%,
+      #fff066 15.69%,
+      #ffa31a 55.54%,
+      #ff0073 99%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    width: max-content;
   }
   .page-title {
     color: var(--white);
