@@ -6,15 +6,12 @@
 
 ### 🏠 [Homepage](https://stupefied-liskov-7a3b28.netlify.app)
 
+## Stack
+ - Front-End: Gatsby / Tailwind / Sass
+ - Back-End: Sanity CMS / GraphQl
+
 ## Author
 
 👤 **alexgWebDev**
 
 * Website: https://www.alexgwebdev.com/
-
-## Show your support
-
-Give a ⭐️ if this project helped you!
-
-***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
