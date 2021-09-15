@@ -2,7 +2,7 @@
 <p>
 </p>
 
-> Repo made for all frontend challenges (frontend mentor, freecodecamp...etc)
+> This repo centralize all the frontend challenges (frontend mentor, Freecodecamp...) i've done for learning purpose, practicing or just fun 🤓
 
 ### 🏠 [Homepage](https://stupefied-liskov-7a3b28.netlify.app)
 
