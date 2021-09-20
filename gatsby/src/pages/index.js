@@ -64,7 +64,10 @@ const IndexPage = () => (
           <Link to="/disneyClone">Disney+ Clone</Link>
         </li>
         <li>
-          <Link to="/fcc_quote_machine">Freecodecamp Random Quote Machine</Link>
+          <Link to="/fccQuoteMachine">Freecodecamp Random Quote Machine</Link>
+        </li>
+        <li>
+          <Link to="/markdownPreviewer">Freecodecamp Markdown Previewer</Link>
         </li>
       </ul>
     </HomeStyles>
