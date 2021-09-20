@@ -4,10 +4,9 @@ dotenv.config({ path: '.env' });
 
 export default {
   siteMetadata: {
-    title: 'Frontend Mentor challenges',
-    // TODO: change for real URL
-    siteUrl: `https://www.rien.com`,
-    description: `Repo made to centralize frontend mentor challenges`,
+    title: 'Frontend challenges',
+    siteUrl: `https://stupefied-liskov-7a3b28.netlify.app/`,
+    description: `Repo made to centralize frontend challenges (FCC, Frontend Mentor...)`,
     image: '/meta_image.png',
   },
   plugins: [
