@@ -69,6 +69,9 @@ const IndexPage = () => (
         <li>
           <Link to="/markdownPreviewer">Freecodecamp Markdown Previewer</Link>
         </li>
+        <li>
+          <Link to="/drumMachine">Freecodecamp Drum Machine</Link>
+        </li>
       </ul>
     </HomeStyles>
   </Layout>
