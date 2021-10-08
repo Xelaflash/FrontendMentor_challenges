@@ -58,7 +58,7 @@ const Typography = createGlobalStyle`
   .title {
     text-align: center;
     margin: -20px auto 80px auto;
-    font-size: 5rem;
+    font-size: 3rem;
     font-weight: bold;
     letter-spacing: 2px;
     background-color: #ffb23e;
@@ -84,7 +84,7 @@ const Typography = createGlobalStyle`
   }
   @media (max-width: 812px) {
     .title {
-      font-size: 3rem;
+      font-size: 2rem;
       margin: 40px auto;
       width: auto;
     }

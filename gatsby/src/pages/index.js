@@ -72,6 +72,9 @@ const IndexPage = () => (
         <li>
           <Link to="/drumMachine">Freecodecamp Drum Machine</Link>
         </li>
+        <li>
+          <Link to="/tags">Itw challenge - User input tags</Link>
+        </li>
       </ul>
     </HomeStyles>
   </Layout>

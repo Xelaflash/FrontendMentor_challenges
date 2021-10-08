@@ -18,21 +18,21 @@ const GlobalStyles = createGlobalStyle`
     --darkGreen: #3e7520;
   }
 
-  * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
 
   html {
     background-size: cover;
     min-height: 100vh;
-    font-size:10px;
+    font-size: 1rem;
   }
 
   body {
     background-color: var(--black);
-    font-size: 1.8rem;
+    /* font-size: 1rem; */
     min-height:100vh;
   }
 
@@ -48,6 +48,7 @@ const GlobalStyles = createGlobalStyle`
 
   img {
     max-width: 100%;
+    display:block;
   }
 
   .underline_svg {
