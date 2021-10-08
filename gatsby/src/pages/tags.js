@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { FaTrashAlt, FaCheckSquare } from 'react-icons/fa';
 import Layout from '../components/Layout';
@@ -8,12 +8,18 @@ import '../styles/tags.css';
 const TagsStyles = styled.div`
   color: white;
   ol {
-    max-width: fit-content;
+    width: max-content;
     line-height: 1.5em;
     margin: 0 auto;
   }
   form {
     display: block;
+  }
+  aside {
+    font-size: 0.85rem;
+    color: var(--red);
+    margin-left: 15px;
+    width: fit-content;
   }
 `;
 
@@ -30,25 +36,42 @@ const TagListStyles = styled.div`
     border-bottom-left-radius: 2rem;
     border-top-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
-    background: var(--lightGreen);
+    /* background: var(--lightGreen); */
     color: var(--darkGrey);
     margin: 0 5px;
     text-transform: capitalize;
   }
 `;
 
+function generateRandomColor() {
+  const randomColor = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+  return randomColor;
+}
+
+function Tag({ removeTag, tag }) {
+  const [bgColor, setBgColor] = useState(null);
+
+  useEffect(() => {
+    setBgColor(generateRandomColor());
+  }, []);
+
+  return (
+    <div>
+      <p className="tag" style={{ background: `${bgColor}` }}>
+        {tag}{' '}
+        <button type="button" onClick={() => removeTag(tag)}>
+          <FaTrashAlt style={{ marginLeft: '5px', fontSize: '0.8rem' }} />
+        </button>
+      </p>
+    </div>
+  );
+}
+
 function TagList({ tagList, removeTag }) {
   return (
     <TagListStyles>
       {tagList.map((tag) => (
-        <div key={tag}>
-          <p className="tag">
-            {tag}{' '}
-            <button type="button" onClick={() => removeTag(tag)}>
-              <FaTrashAlt style={{ marginLeft: '5px', fontSize: '0.8rem' }} />
-            </button>
-          </p>
-        </div>
+        <Tag tag={tag} key={tag} removeTag={removeTag} />
       ))}
     </TagListStyles>
   );
@@ -57,6 +80,12 @@ function TagList({ tagList, removeTag }) {
 export default function Tags() {
   const [tagList, setTagList] = useState([]);
   const [inputValue, setInputValue] = useState('');
+
+  const removeTag = (element) => {
+    // console.log(element);
+    const newTagList = tagList.filter((tag) => tag !== element);
+    setTagList(newTagList);
+  };
 
   const childToParent = (inputValueFromAutocomplete) => {
     setInputValue(inputValueFromAutocomplete);
@@ -79,12 +108,6 @@ export default function Tags() {
       return [...prevTagList];
     });
     setInputValue('');
-  };
-
-  const removeTag = (element) => {
-    // console.log(element);
-    const newTagList = tagList.filter((tag) => tag !== element);
-    setTagList(newTagList);
   };
 
   return (
@@ -123,7 +146,29 @@ export default function Tags() {
                 }}
               />
             </li>
-            <li>4. Autocomplete based on JSON list</li>
+            <li>
+              4. Autocomplete based on JSON list
+              <FaCheckSquare
+                style={{
+                  color: 'var(--lightGreen)',
+                  display: 'inline',
+                  marginLeft: '5px',
+                }}
+              />
+              <span>
+                <aside>it was hard</aside>
+              </span>
+            </li>
+            <li>
+              5. Bonus: random bg color on tag creation
+              <FaCheckSquare
+                style={{
+                  color: 'var(--lightGreen)',
+                  display: 'inline',
+                  marginLeft: '5px',
+                }}
+              />
+            </li>
           </ol>
         </header>
         <main>
@@ -132,17 +177,11 @@ export default function Tags() {
             onSubmit={handleSubmit}
           >
             <div className="mb-4">
-              <label
-                className="block text-gray-700 text-sm font-bold mb-2"
-                htmlFor="username"
-              >
-                Enter a tag
-                <Autocomplete
-                  suggestions={['ruby', 'javascript', 'html', 'css', 'php']}
-                  childToParent={childToParent}
-                  inputValueFromParent={inputValue}
-                />
-              </label>
+              <Autocomplete
+                suggestions={['ruby', 'javascript', 'html', 'css', 'php']}
+                childToParent={childToParent}
+                inputValueFromParent={inputValue}
+              />
             </div>
             <div className="flex items-center justify-between">
               <button
