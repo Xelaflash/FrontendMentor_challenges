@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { FaTrashAlt } from 'react-icons/fa';
+import { FaTrashAlt, FaCheckSquare } from 'react-icons/fa';
 import Layout from '../components/Layout';
+import Autocomplete from '../components/Autocomplete.js';
+import '../styles/tags.css';
 
 const TagsStyles = styled.div`
   color: white;
@@ -56,23 +58,31 @@ export default function Tags() {
   const [tagList, setTagList] = useState([]);
   const [inputValue, setInputValue] = useState('');
 
-  const handleChange = (event) => {
-    setInputValue(event.target.value);
+  const childToParent = (inputValueFromAutocomplete) => {
+    setInputValue(inputValueFromAutocomplete);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // console.log(`A name was submitted: ${inputValue}`);
-
     // we take the previous array of tags and we spread it in a wrapper function (cf article) and we append our new inputValue.
     //  to prepend (add new value at index0 juste reverse the order)
     // https://javascript.plainenglish.io/how-to-add-to-an-array-in-react-state-3d08ddb2e1dc
-    setTagList((prevTagList) => [...prevTagList, inputValue]);
+    setTagList((prevTagList) => {
+      // evaluate if user input not in Taglist
+      // will return true if item not in array
+      if (!prevTagList.includes(inputValue)) {
+        return [...prevTagList, inputValue];
+      }
+      alert(
+        `Shoot! You entered: ${inputValue}. This tag is already in the list.`
+      );
+      return [...prevTagList];
+    });
     setInputValue('');
   };
 
   const removeTag = (element) => {
-    console.log(element);
+    // console.log(element);
     const newTagList = tagList.filter((tag) => tag !== element);
     setTagList(newTagList);
   };
@@ -83,9 +93,36 @@ export default function Tags() {
         <header>
           <h1 className="title">User input tags</h1>
           <ol>
-            <li>1. Tags must be removable</li>
-            <li>2. Form submit on enter</li>
-            <li>3. Can't have duplicate tags</li>
+            <li>
+              1. Tags must be removable{' '}
+              <FaCheckSquare
+                style={{
+                  color: 'var(--lightGreen)',
+                  display: 'inline',
+                  marginLeft: '5px',
+                }}
+              />
+            </li>
+            <li>
+              2. Form submit on enter
+              <FaCheckSquare
+                style={{
+                  color: 'var(--lightGreen)',
+                  display: 'inline',
+                  marginLeft: '5px',
+                }}
+              />
+            </li>
+            <li>
+              3. Can't have duplicate tags
+              <FaCheckSquare
+                style={{
+                  color: 'var(--lightGreen)',
+                  display: 'inline',
+                  marginLeft: '5px',
+                }}
+              />
+            </li>
             <li>4. Autocomplete based on JSON list</li>
           </ol>
         </header>
@@ -100,17 +137,13 @@ export default function Tags() {
                 htmlFor="username"
               >
                 Enter a tag
-                <input
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  id="username"
-                  type="text"
-                  placeholder="Ruby"
-                  onChange={handleChange}
-                  value={inputValue}
+                <Autocomplete
+                  suggestions={['ruby', 'javascript', 'html', 'css', 'php']}
+                  childToParent={childToParent}
+                  inputValueFromParent={inputValue}
                 />
               </label>
             </div>
-
             <div className="flex items-center justify-between">
               <button
                 className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
