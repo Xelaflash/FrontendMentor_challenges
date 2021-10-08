@@ -77,9 +77,30 @@ function TagList({ tagList, removeTag }) {
   );
 }
 
+const checkItem = () => {
+  const check = localStorage.getItem('My Item');
+  // First check for null then check for length
+  if (check && check.length) {
+    return true;
+  }
+  return false;
+};
+
 export default function Tags() {
   const [tagList, setTagList] = useState([]);
   const [inputValue, setInputValue] = useState('');
+
+  useEffect(() => {
+    const json = localStorage.getItem('tags');
+    const savedTags = JSON.parse(json);
+    if (savedTags) {
+      setTagList(savedTags);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('tags', JSON.stringify(tagList));
+  }, [tagList]);
 
   const removeTag = (element) => {
     // console.log(element);
