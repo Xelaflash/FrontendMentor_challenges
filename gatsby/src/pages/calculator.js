@@ -1,20 +1,31 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Layout from '../components/Layout';
-import addExternalScript from '../utils/addExternalScript.js';
+// import addExternalScript from '../utils/addExternalScript.js';
 
-const Display = ({ displayValue }) => (
+const Display = ({ currentValue }) => (
   <div>
     <div id="display" className="calculator__display">
-      0
+      {currentValue}
     </div>
   </div>
 );
 
 export default function Calculator() {
-  const [currentValue, setCurrentValue] = useState(null);
-  const [prevValue, setPrevValue] = useState(0);
+  const [currentValue, setCurrentValue] = useState('0');
+  const [prevValue, setPrevValue] = useState('0');
   const [formula, setFormula] = useState('');
+  const [evaluated, setEvaluated] = useState(false);
+
+  const isOperator = /[x/+‑]/;
+  const endsWithOperator = /[x+‑/]$/;
+  const endsWithNegativeSign = /\d[x/+-]{1}-$/;
+
+  // useEffect(() => {
+  //   addExternalScript(
+  //     'https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js'
+  //   );
+  // }, []);
 
   function maxDigitWarning() {
     setCurrentValue('Digit Limit Met');
@@ -22,24 +33,124 @@ export default function Calculator() {
     setTimeout(() => setCurrentValue(prevValue), 1000);
   }
 
-  useEffect(() => {
-    addExternalScript(
-      'https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js'
-    );
-  }, []);
+  function handleEvaluate() {
+    if (!currentValue.includes('Limit')) {
+      let expression = formula;
+      while (endsWithOperator.test(expression)) {
+        expression = expression.slice(0, -1);
+      }
+      expression = expression
+        .replace(/x/g, '*')
+        .replace(/‑/g, '-')
+        .replace('--', '+0+0+0+0+0+0+');
+      const answer =
+        Math.round(1000000000000 * eval(expression)) / 1000000000000;
+      setCurrentValue(answer.toString());
+
+      const sanitizedExpression = expression
+        .replace(/\*/g, '⋅')
+        .replace(/-/g, '‑')
+        .replace('+0+0+0+0+0+0+', '‑-')
+        .replace(/(x|\/|\+)‑/, '$1-')
+        .replace(/^‑/, '-');
+      setFormula(`${sanitizedExpression} = ${answer}`);
+      setPrevValue(answer);
+      setEvaluated(true);
+    }
+  }
+
+  function handleOperators(e) {
+    console.log(endsWithOperator.test(formula));
+    if (!currentValue.includes('Limit')) {
+      const { value } = e.target;
+      setCurrentValue(value);
+      setEvaluated(false);
+      if (evaluated) {
+        setFormula(formula + value);
+      } else if (!endsWithOperator.test(formula)) {
+        setPrevValue(formula);
+        setFormula(formula + value);
+      } else if (!endsWithNegativeSign.test(formula)) {
+        setFormula(
+          (endsWithNegativeSign.test(formula + value) ? formula : prevValue) +
+            value
+        );
+      } else if (value !== '‑') {
+        setFormula(prevValue + value);
+      }
+    }
+  }
+
+  function handleNumbers(e) {
+    if (!currentValue.includes('Limit')) {
+      const { value } = e.target;
+      setEvaluated(false);
+      if (currentValue.length > 21) {
+        maxDigitWarning();
+      } else if (evaluated) {
+        setCurrentValue(value);
+        setFormula(value !== '0' ? value : '');
+      } else {
+        setCurrentValue(
+          currentValue === '0' || isOperator.test(currentValue)
+            ? value
+            : currentValue + value
+        );
+        setFormula(
+          currentValue === '0' && value === '0'
+            ? formula === ''
+              ? value
+              : formula
+            : /([^.0-9]0|^0)$/.test(formula)
+            ? formula.slice(0, -1) + value
+            : formula + value
+        );
+      }
+    }
+  }
+
+  function handleDecimal() {
+    if (evaluated === true) {
+      setCurrentValue('0.');
+      setFormula('0.');
+      setEvaluated(false);
+    } else if (!currentValue.includes('.') && !currentValue.includes('Limit')) {
+      setEvaluated(false);
+      if (currentValue.length > 21) {
+        maxDigitWarning();
+      } else if (
+        endsWithOperator.test(formula) ||
+        (currentValue === '0' && formula === '')
+      ) {
+        setCurrentValue('0.');
+        setFormula(`${formula}0.`);
+      } else {
+        setCurrentValue(`${formula.match(/(-?\d+\.?\d*)$/)[0]}.`);
+        setFormula(`${formula}.`);
+      }
+    }
+  }
+
+  const initialize = () => {
+    setCurrentValue('0');
+    setPrevValue('0');
+    setFormula('');
+    setEvaluated(false);
+  };
 
   return (
     <Layout>
       <CalculatorStyles>
         <div className="container">
           <div className="calculator">
+            <Formula formula={formula.replace(/x/g, '⋅')} />
             <Display currentValue={currentValue} />
             <Buttons
-            // decimal={handleDecimal}
-            // evaluate={handleEvaluate}
-            // initialize={initialize}
-            // numbers={handleNumbers}
-            // operators={handleOperators}
+              decimal={handleDecimal}
+              evaluate={handleEvaluate}
+              numbers={handleNumbers}
+              operators={handleOperators}
+              onClear={initialize}
             />
           </div>
         </div>
@@ -48,7 +159,7 @@ export default function Calculator() {
   );
 }
 
-function Buttons() {
+function Buttons({ decimal, evaluate, numbers, operators, onClear }) {
   return (
     <div className="calculator__keys">
       <button
@@ -56,6 +167,8 @@ function Buttons() {
         id="add"
         data-action="add"
         type="button"
+        onClick={operators}
+        value="+"
       >
         +
       </button>
@@ -64,6 +177,8 @@ function Buttons() {
         data-action="subtract"
         id="subtract"
         type="button"
+        onClick={operators}
+        value="-"
       >
         -
       </button>
@@ -72,6 +187,8 @@ function Buttons() {
         id="multiply"
         data-action="multiply"
         type="button"
+        onClick={operators}
+        value="x"
       >
         &times;
       </button>
@@ -80,43 +197,57 @@ function Buttons() {
         id="divide"
         data-action="divide"
         type="button"
+        onClick={operators}
+        value="/"
       >
         ÷
       </button>
-      <button id="seven" type="button">
+      <button id="seven" type="button" onClick={numbers} value="7">
         7
       </button>
-      <button id="eight" type="button">
+      <button id="eight" type="button" onClick={numbers} value="8">
         8
       </button>
-      <button id="nine" type="button">
+      <button id="nine" type="button" onClick={numbers} value="9">
         9
       </button>
-      <button id="four" type="button">
+      <button id="four" type="button" onClick={numbers} value="4">
         4
       </button>
-      <button id="five" type="button">
+      <button id="five" type="button" onClick={numbers} value="5">
         5
       </button>
-      <button id="six" type="button">
+      <button id="six" type="button" onClick={numbers} value="6">
         6
       </button>
-      <button id="one" type="button">
+      <button id="one" type="button" onClick={numbers} value="1">
         1
       </button>
-      <button id="two" type="button">
+      <button id="two" type="button" onClick={numbers} value="2">
         2
       </button>
-      <button id="three" type="button">
+      <button id="three" type="button" onClick={numbers} value="3">
         3
       </button>
-      <button id="zero" type="button">
+      <button id="zero" type="button" onClick={numbers} value="0">
         0
       </button>
-      <button id="decimal" data-action="decimal" type="button">
+      <button
+        id="decimal"
+        data-action="decimal"
+        type="button"
+        onClick={decimal}
+        value="."
+      >
         .
       </button>
-      <button id="clear" data-action="clear" type="button">
+      <button
+        id="clear"
+        data-action="clear"
+        type="button"
+        onClick={onClear}
+        value="AC"
+      >
         AC
       </button>
       <button
@@ -124,11 +255,17 @@ function Buttons() {
         id="equals"
         data-action="calculate"
         type="button"
+        value="="
+        onClick={evaluate}
       >
         =
       </button>
     </div>
   );
+}
+
+function Formula({ formula }) {
+  return <div className="formulaScreen">{formula}</div>;
 }
 
 const CalculatorStyles = styled.div`
@@ -149,6 +286,18 @@ const CalculatorStyles = styled.div`
     margin-top: 2em;
     max-width: 15em;
     overflow: hidden;
+  }
+
+  .formulaScreen {
+    min-height: 40px;
+    font-size: 20px;
+    color: orange;
+    text-align: right;
+    vertical-align: text-top;
+    line-height: 20px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    padding: 10px;
   }
 
   .calculator__display {
