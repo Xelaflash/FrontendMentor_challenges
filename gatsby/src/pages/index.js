@@ -75,6 +75,9 @@ const IndexPage = () => (
         <li>
           <Link to="/tags">Itw challenge - User input tags</Link>
         </li>
+        <li>
+          <Link to="/calculator">Freecodecamp Calculator</Link>
+        </li>
       </ul>
     </HomeStyles>
   </Layout>
