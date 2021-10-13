@@ -35,17 +35,17 @@ export default function Calculator() {
           <div className="calculator">
             <Display currentValue={currentValue} />
             <Buttons
-              decimal={handleDecimal}
-              evaluate={handleEvaluate}
-              initialize={initialize}
-              numbers={handleNumbers}
-              operators={handleOperators}
+            // decimal={handleDecimal}
+            // evaluate={handleEvaluate}
+            // initialize={initialize}
+            // numbers={handleNumbers}
+            // operators={handleOperators}
             />
           </div>
         </div>
       </CalculatorStyles>
     </Layout>
-  )
+  );
 }
 
 function Buttons() {
@@ -130,3 +130,70 @@ function Buttons() {
     </div>
   );
 }
+
+const CalculatorStyles = styled.div`
+  .container {
+    max-width: 20rem;
+    margin: 50px auto;
+  }
+
+  .container > p {
+    text-align: center;
+  }
+
+  .calculator {
+    border-radius: 12px;
+    box-shadow: 0 0 40px 0px rgba(255, 255, 255, 0.7);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2em;
+    max-width: 15em;
+    overflow: hidden;
+  }
+
+  .calculator__display {
+    background-color: #222222;
+    color: #fff;
+    font-size: 1.714285714em;
+    padding: 0.5em 0.75em;
+    text-align: right;
+  }
+
+  .calculator__keys {
+    display: grid;
+    grid-gap: 1px;
+    grid-template-columns: repeat(4, 1fr);
+    border: 1px solid hsl(227, 5%, 45%);
+  }
+
+  .calculator__keys > * {
+    background-color: hsl(227, 5%, 50%);
+    padding: 1em 1.25em;
+    position: relative;
+    text-align: center;
+  }
+
+  .calculator__keys > *:active::before,
+  .calculator__keys > .is-depressed::before {
+    background-color: rgba(0, 0, 0, 0.2);
+    bottom: 0;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.5) inset;
+    content: '';
+    left: 0;
+    opacity: 0.3;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+  }
+
+  .key--operator {
+    background-color: hsl(36, 100%, 52%);
+  }
+
+  .key--equal {
+    background-color: hsl(36, 100%, 52%);
+    grid-column: -2;
+    grid-row: 2 / span 4;
+  }
+`;
